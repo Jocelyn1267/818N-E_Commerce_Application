@@ -97,11 +97,11 @@ if (isset($_POST['user_register'])) {
         // insert query
         move_uploaded_file($user_image_tmp, "./user_images/$user_image");
         $insert_query = "INSERT INTO `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) VALUES ('$user_username','$user_email','$hash_password','$user_image','$user_ip','$user_address','$user_mobile')";
-        $insert_result = mysqli_query($writeCon, $insert_query);
+        $insert_result = mysqli_query($con, $insert_query);
         if ($insert_result) {
             echo "<script>window.alert('User added successfully');</script>";
         } else {
-            die(mysqli_error($writeCon));
+            die(mysqli_error($con));
         }
     }
     // //select cart items check if items in cart go to checkout !| go to index.php
